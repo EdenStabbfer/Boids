@@ -38,13 +38,20 @@ void ModelSolver::solveBoundaries1(Boid& obj)
 
 void ModelSolver::solveBoundaries2(Boid& obj)
 {
-    if (obj.m_position.x < 0.0) // left
+    // Left
+    if (obj.m_position.x < 0.0)
         obj.m_position.x = (float)Settings::General::WindowWidth + obj.m_position.x;
-    if (obj.m_position.y < 0.0) // top
+
+    // Top
+    if (obj.m_position.y < 0.0)
         obj.m_position.y = (float)Settings::General::WindowHeight + obj.m_position.y;
-    if (obj.m_position.x > (float)Settings::General::WindowWidth) // right
+
+    // Right
+    if (obj.m_position.x > (float)Settings::General::WindowWidth)
         obj.m_position.x -= (float)Settings::General::WindowWidth;
-    if (obj.m_position.y > (float)Settings::General::WindowHeight) // bottom
+
+    // Bottom
+    if (obj.m_position.y > (float)Settings::General::WindowHeight)
         obj.m_position.y -= (float)Settings::General::WindowHeight;
 }
 

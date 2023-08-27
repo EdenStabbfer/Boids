@@ -4,11 +4,7 @@
 
 #include "../../include/Entities/Boid.h"
 
-size_t generateId()
-{
-    static size_t counter{0};
-    return counter++;
-}
+
 
 Boid::Boid(sf::Vector2f pos, float maxSpeed) : m_position(pos), m_maxSpeed(maxSpeed)
 {
@@ -16,7 +12,6 @@ Boid::Boid(sf::Vector2f pos, float maxSpeed) : m_position(pos), m_maxSpeed(maxSp
     m_desiredDirection = m_velocity;
     m_velocity *= maxSpeed;
     m_acceleration = {0, 0};
-    _id = generateId();
 }
 
 const sf::Vector2f &Boid::getPosition() const
@@ -56,14 +51,4 @@ void Boid::move()
     m_position += m_velocity * Time::getDt();
 
     m_acceleration = {0, 0};
-}
-
-bool Boid::operator==(const Boid &other) const
-{
-    return this->_id == other._id;
-}
-
-bool Boid::operator!=(const Boid &other) const
-{
-    return this->_id != other._id;
 }

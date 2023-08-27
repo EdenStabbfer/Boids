@@ -5,8 +5,6 @@
 #include "../include/Solver/ModelSolver.h"
 #include "../include/Render/Renderer.h"
 
-#include "../include/Utils/Settings.h"
-
 
 int main()
 {
@@ -15,6 +13,7 @@ int main()
     int minBoidSpeed{400}, maxBoidSpeed{800};
     int boidsPerClick{10};
 
+    // ToDo: Add application class
 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;

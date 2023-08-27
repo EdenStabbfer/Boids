@@ -5,9 +5,13 @@
 #ifndef ICONTAINER_H
 #define ICONTAINER_H
 
+#include "../Entities/IEntity.h"
 
+template<IsEntity T>
 class IContainer
 {
+
+private:
 
 };
 

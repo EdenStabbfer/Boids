@@ -5,11 +5,13 @@
 #ifndef BOID_H
 #define BOID_H
 
+#include "IEntity.h"
+
 #include "../Math/MathPlus.h"
 #include "../Utils/Time.h"
 #include "../Utils/Statistics.h"
 
-class Boid
+class Boid : public IEntity
 {
     friend class ModelSolver;
     friend class Renderer;
@@ -30,9 +32,6 @@ public:
 
     void move();
 
-    bool operator==(const Boid& other) const;
-    bool operator!=(const Boid& other) const;
-
 private:
     sf::Vector2f m_position;
     sf::Vector2f m_velocity;
@@ -40,8 +39,6 @@ private:
     sf::Vector2f m_acceleration;
 
     float m_maxSpeed;
-
-    size_t _id;
 
 public:
 
