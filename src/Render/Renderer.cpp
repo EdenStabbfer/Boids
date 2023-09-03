@@ -6,7 +6,7 @@
 #include <iostream>
 
 Renderer::Renderer(sf::RenderWindow* window,
-                   std::vector<Boid> &targets,
+                   IContainer<Boid> &targets,
                    const SolverStats& solverStats)
                    :
                    m_targets(targets),

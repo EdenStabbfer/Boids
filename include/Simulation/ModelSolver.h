@@ -10,23 +10,25 @@
 #include "../Entities/Boid.h"
 #include "../Utils/Statistics.h"
 #include "../Utils/Settings.h"
+#include "../Container/IContainer.h"
+
+#include "BoundariesSolver.h"
+
 
 class ModelSolver
 {
 private:
     void solveInteraction(Boid& obj);
-    void solveBoundaries1(Boid& obj);
-    void solveBoundaries2(Boid& obj);
     static void wonder(Boid& obj);
 
 
 public:
-    explicit ModelSolver(std::vector<Boid>& targets);
+    explicit ModelSolver(IContainer<Boid>& targets);
 
     void update();
 
 private:
-    std::vector<Boid>& m_targets;
+    IContainer<Boid>& m_targets;
 
 public:
     SolverStats stats;

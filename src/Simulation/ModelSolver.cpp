@@ -1,58 +1,19 @@
 //
 // Created by kufuk on 04.08.2023.
 //
-# include "../../include/Solver/ModelSolver.h"
+# include "../../include/Simulation/ModelSolver.h"
 
-ModelSolver::ModelSolver(std::vector<Boid>& targets) : m_targets(targets)
+ModelSolver::ModelSolver(IContainer<Boid>& targets) : m_targets(targets)
 {}
 
 void ModelSolver::update()
 {
     for (auto& obj: m_targets) {
-        solveBoundaries2(obj);
+        BoundariesSolver::solve(obj);
         wonder(obj);
         solveInteraction(obj);
         obj.move();
     }
-}
-
-
-void ModelSolver::solveBoundaries1(Boid& obj)
-{
-    // Left
-    if (obj.m_position.x < Settings::Model::WindowMargin)
-        obj.m_acceleration.x += (Settings::Model::WindowMargin - obj.m_position.x) * Settings::Model::TurnFactor;
-
-    // Top
-    if (obj.m_position.y < Settings::Model::WindowMargin)
-        obj.m_acceleration.y += (Settings::Model::WindowMargin - obj.m_position.y) * Settings::Model::TurnFactor;
-
-    // Right
-    if (obj.m_position.x > (float)Settings::General::WindowWidth - Settings::Model::WindowMargin)
-        obj.m_acceleration.x += ((float)Settings::General::WindowWidth - Settings::Model::WindowMargin - obj.m_position.x) * Settings::Model::TurnFactor;
-
-    // Bottom
-    if (obj.m_position.y > (float)Settings::General::WindowHeight - Settings::Model::WindowMargin)
-        obj.m_acceleration.y += ((float)Settings::General::WindowHeight - Settings::Model::WindowMargin - obj.m_position.y) * Settings::Model::TurnFactor;
-}
-
-void ModelSolver::solveBoundaries2(Boid& obj)
-{
-    // Left
-    if (obj.m_position.x < 0.0)
-        obj.m_position.x = (float)Settings::General::WindowWidth + obj.m_position.x;
-
-    // Top
-    if (obj.m_position.y < 0.0)
-        obj.m_position.y = (float)Settings::General::WindowHeight + obj.m_position.y;
-
-    // Right
-    if (obj.m_position.x > (float)Settings::General::WindowWidth)
-        obj.m_position.x -= (float)Settings::General::WindowWidth;
-
-    // Bottom
-    if (obj.m_position.y > (float)Settings::General::WindowHeight)
-        obj.m_position.y -= (float)Settings::General::WindowHeight;
 }
 
 void ModelSolver::wonder(Boid& obj)
