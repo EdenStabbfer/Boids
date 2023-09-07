@@ -11,7 +11,7 @@
 int main()
 {
     float fpsSum{0}, avgFps{0};
-    int minBoidSpeed{400}, maxBoidSpeed{800};
+    int minBoidSpeed{300}, maxBoidSpeed{600};
     int boidsPerClick{10};
 
     // ToDo: Add application class
@@ -57,12 +57,18 @@ int main()
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                if (event.mouseButton.button == sf::Mouse::Left)
-                {
-                    for (int i{0}; i < boidsPerClick; i++)
-                        boids.add(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y), dis(gen));
-                }
+//                if (event.mouseButton.button == sf::Mouse::Left)
+//                {
+//                    for (int i{0}; i < boidsPerClick; i++)
+//                        boids.add(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y), dis(gen));
+//                }
             }
+        }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+        {
+            for (int i{0}; i < boidsPerClick; i++)
+                boids.add(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y), dis(gen));
         }
 
         solver.update();

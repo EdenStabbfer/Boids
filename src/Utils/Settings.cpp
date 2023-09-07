@@ -12,7 +12,7 @@ int const Settings::General::FrameRateLimit =   60;
 
 // Model
 float Settings::Model::WindowMargin =       200.0;
-float Settings::Model::TurnFactor =         10.0;
+float Settings::Model::TurnFactor =         50.0;
 float Settings::Model::AvoidFactor =        40.0;
 float Settings::Model::MathingFactor =      10.0;
 float Settings::Model::CenteringFactor =    70.0;

@@ -12,8 +12,14 @@
 float len(const sf::Vector2f& v);
 float lenSq(const sf::Vector2f& v);
 
+float len(const sf::Vector3f& v);
+float lenSq(const sf::Vector3f& v);
+
 sf::Vector2f& norm(sf::Vector2f& v);
 sf::Vector2f norm(const sf::Vector2f& v);
+
+sf::Vector3f& norm(sf::Vector3f& v);
+sf::Vector3f norm(const sf::Vector3f& v);
 
 float dot(const sf::Vector2f& v1, const sf::Vector2f& v2);
 

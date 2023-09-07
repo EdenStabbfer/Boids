@@ -14,6 +14,16 @@ float len(const sf::Vector2f& v)
     return sqrt(lenSq(v));
 }
 
+float lenSq(const sf::Vector3f& v)
+{
+    return v.x*v.x + v.y*v.y + v.z*v.z;
+}
+
+float len(const sf::Vector3f& v)
+{
+    return sqrt(lenSq(v));
+}
+
 sf::Vector2f& norm(sf::Vector2f& v)
 {
     v /= static_cast<float>(len(v));
@@ -23,6 +33,18 @@ sf::Vector2f& norm(sf::Vector2f& v)
 sf::Vector2f norm(const sf::Vector2f& v)
 {
     sf::Vector2f nv = v / static_cast<float>(len(v));
+    return nv;
+}
+
+sf::Vector3f& norm(sf::Vector3f& v)
+{
+    v /= static_cast<float>(len(v));
+    return v;
+}
+
+sf::Vector3f norm(const sf::Vector3f& v)
+{
+    sf::Vector3f nv = v / static_cast<float>(len(v));
     return nv;
 }
 

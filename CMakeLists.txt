@@ -3,6 +3,7 @@ project(Boids)
 
 set(CMAKE_CXX_STANDARD 20)
 set(SFML_STATIC_LIBRARIES TRUE)
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 
 set(SFML_DIR C:/CPP_Libs/SFML/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)

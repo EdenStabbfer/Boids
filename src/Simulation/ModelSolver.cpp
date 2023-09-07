@@ -65,8 +65,10 @@ void ModelSolver::solveInteraction(Boid& obj)
     if (neighboringBoidsCnt)
     {
         obj.m_acceleration += (neighboringVelocities / (float)neighboringBoidsCnt - obj.m_velocity) * Settings::Model::MathingFactor;
-        obj.m_acceleration +=(neighboringPositions / (float)neighboringBoidsCnt - obj.m_position) * Settings::Model::CenteringFactor;
+        obj.m_acceleration += (neighboringPositions / (float)neighboringBoidsCnt - obj.m_position) * Settings::Model::CenteringFactor;
     }
+
+    obj.stats.distToCenterOfMass = len(neighboringPositions / (float)neighboringBoidsCnt - obj.m_position);
 
     if(neighboringBoidsCnt > stats.maxNeighboursCount)
         stats.maxNeighboursCount = neighboringBoidsCnt;
