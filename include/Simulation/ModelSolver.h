@@ -10,26 +10,26 @@
 #include "../Entities/Boid.h"
 #include "../Utils/Statistics.h"
 #include "../Utils/Settings.h"
-#include "../Container/IContainer.h"
+#include "../Container/LinearContainer.h"
 
 // Solver static modules
-#include "BoundariesSolver.h"
+#include "Modules/BoundariesSolver.h"
+#include "Modules/InteractionSolver.h"
 
 
 class ModelSolver
 {
 private:
-    void solveInteraction(Boid& obj);
     static void wonder(Boid& obj);
 
 
 public:
-    explicit ModelSolver(IContainer<Boid>& targets);
+    explicit ModelSolver(LinearContainer<Boid>& targets);
 
     void update();
 
 private:
-    IContainer<Boid>& m_targets;
+    LinearContainer<Boid>& m_targets;
 
 public:
     SolverStats stats;

@@ -1,7 +1,7 @@
 //
 // Created by kufuk on 03.09.2023.
 //
-#include "../../include/Simulation/BoundariesSolver.h"
+#include "../../../include/Simulation/Modules/BoundariesSolver.h"
 
 
 BoundariesSolver::SolveMethod BoundariesSolver::current = CONTINUOUS_BORDERS;

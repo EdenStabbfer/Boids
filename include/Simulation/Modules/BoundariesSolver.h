@@ -5,8 +5,8 @@
 #ifndef BOUNDARIESSOLVER_H
 #define BOUNDARIESSOLVER_H
 
-#include "../Entities/Boid.h"
-#include "../Utils/Settings.h"
+#include "../../Entities/Boid.h"
+#include "../../Utils/Settings.h"
 
 
 /* Uses to define ways to resolve Out of borders conflict */

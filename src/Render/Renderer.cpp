@@ -40,9 +40,9 @@ void Renderer::render()
 sf::Color Renderer::palette(float t)
 {
     const sf::Vector3f a{0.500, 0.500, 0.500};
-    const sf::Vector3f b{0.500, 0.500, 0.500};
-    const sf::Vector3f c{1.000, 1.000, 1.000};
-    const sf::Vector3f d{0.000, 0.333, 0.667};
+    const sf::Vector3f b{1.500, 0.500, 0.500};
+    const sf::Vector3f c{0.800, 0.800, 0.800};
+    const sf::Vector3f d{0.200, 0.533, 0.867};
 
     sf::Vector3f cosArg = 6.28318f * (c*t + d);
     cosArg.x = cos(cosArg.x);

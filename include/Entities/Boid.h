@@ -15,6 +15,7 @@ class Boid : public IEntity
 {
     friend class ModelSolver;
     friend class BoundariesSolver;
+    friend class InteractionSolver;
     friend class Renderer;
 
 public:
