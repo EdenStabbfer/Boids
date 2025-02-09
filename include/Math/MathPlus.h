@@ -9,35 +9,38 @@
 #include <random>
 #include <math.h>
 
-float len(const sf::Vector2f& v);
-float lenSq(const sf::Vector2f& v);
+float len(const sf::Vector2f &v);
 
-float len(const sf::Vector3f& v);
-float lenSq(const sf::Vector3f& v);
+float lenSq(const sf::Vector2f &v);
 
-sf::Vector2f& norm(sf::Vector2f& v);
-sf::Vector2f norm(const sf::Vector2f& v);
+float len(const sf::Vector3f &v);
 
-sf::Vector3f& norm(sf::Vector3f& v);
-sf::Vector3f norm(const sf::Vector3f& v);
+float lenSq(const sf::Vector3f &v);
 
-float dot(const sf::Vector2f& v1, const sf::Vector2f& v2);
+sf::Vector2f &norm(sf::Vector2f &v);
 
-float getAngleBetween(const sf::Vector2f& v1, const sf::Vector2f& v2);
-float getAngleAbsolute(const sf::Vector2f& v);
+sf::Vector2f norm(const sf::Vector2f &v);
+
+sf::Vector3f &norm(sf::Vector3f &v);
+
+sf::Vector3f norm(const sf::Vector3f &v);
+
+float dot(const sf::Vector2f &v1, const sf::Vector2f &v2);
+
+float getAngleBetween(const sf::Vector2f &v1, const sf::Vector2f &v2);
+
+float getAngleAbsolute(const sf::Vector2f &v);
 
 sf::Vector2f getRandomVector();
 
 // Operators
 template<class T>
-sf::Vector3<T> operator*(const sf::Vector3<T>& v1, const sf::Vector3<T>& v2)
-{
+sf::Vector3<T> operator*(const sf::Vector3<T> &v1, const sf::Vector3<T> &v2) {
     return {v1.x * v2.x, v1.y * v2.y, v1.z * v2.z};
 }
 
 template<class T>
-sf::Vector2<T> operator*(const sf::Vector2<T>& v1, const sf::Vector2<T>& v2)
-{
+sf::Vector2<T> operator*(const sf::Vector2<T> &v1, const sf::Vector2<T> &v2) {
     return {v1.x * v2.x, v1.y * v2.y, v1.z * v2.z};
 }
 

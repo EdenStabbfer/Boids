@@ -14,16 +14,18 @@ class IEntity;
 template<class T>
 concept IsEntity = std::derived_from<T, IEntity>;
 
-class IEntity
-{
+class IEntity {
     template<IsEntity T>
-    friend class IContainer;
+    friend
+    class IContainer;
 
 public:
     IEntity();
+
     ~IEntity() = default;
 
     bool operator==(const IEntity &other) const;
+
     bool operator!=(const IEntity &other) const;
 
     [[nodiscard]]

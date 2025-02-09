@@ -8,12 +8,12 @@
 #include <SFML/System.hpp>
 
 
-class Time
-{
+class Time {
 public:
     Time() = default;
 
-    static const float& getDt();
+    static const float &getDt();
+
     static void update();
 
 private:

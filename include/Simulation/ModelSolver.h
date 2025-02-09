@@ -17,19 +17,18 @@
 #include "Modules/InteractionSolver.h"
 
 
-class ModelSolver
-{
+class ModelSolver {
 private:
-    static void wonder(Boid& obj);
+    static void wonder(Boid &obj);
 
 
 public:
-    explicit ModelSolver(LinearContainer<Boid>& targets);
+    explicit ModelSolver(LinearContainer<Boid> &targets);
 
     void update();
 
 private:
-    LinearContainer<Boid>& m_targets;
+    LinearContainer<Boid> &m_targets;
 
 public:
     SolverStats stats;

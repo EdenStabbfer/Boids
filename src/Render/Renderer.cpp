@@ -2,27 +2,23 @@
 // Created by kufuk on 04.08.2023.
 //
 
-#include "../../include/Render/Renderer.h"
-#include <iostream>
+#include "Render/Renderer.h"
 
-Renderer::Renderer(sf::RenderWindow* window,
+Renderer::Renderer(sf::RenderWindow *window,
                    IContainer<Boid> &targets,
-                   const SolverStats& solverStats)
-                   :
-                   m_targets(targets),
-                   m_window(window),
-                   m_solverStats(solverStats)
-{}
+                   const SolverStats &solverStats)
+        :
+        m_targets(targets),
+        m_window(window),
+        m_solverStats(solverStats) {}
 
-void Renderer::render()
-{
+void Renderer::render() {
     m_window->clear();
 
     sf::CircleShape shape(Settings::Boid::Size, 3);
     shape.setOrigin(Settings::Boid::Size, Settings::Boid::Size);
 
-    for (const auto& obj: m_targets)
-    {
+    for (const auto &obj: m_targets) {
         float angle = getAngleAbsolute(obj.m_velocity) + 90.0f;
         shape.setRotation(angle);
 
@@ -37,19 +33,18 @@ void Renderer::render()
     m_window->display();
 }
 
-sf::Color Renderer::palette(float t)
-{
+sf::Color Renderer::palette(float t) {
     const sf::Vector3f a{0.500, 0.500, 0.500};
     const sf::Vector3f b{1.500, 0.500, 0.500};
     const sf::Vector3f c{0.800, 0.800, 0.800};
     const sf::Vector3f d{0.200, 0.533, 0.867};
 
-    sf::Vector3f cosArg = 6.28318f * (c*t + d);
+    sf::Vector3f cosArg = 6.28318f * (c * t + d);
     cosArg.x = cos(cosArg.x);
     cosArg.y = cos(cosArg.y);
     cosArg.z = cos(cosArg.z);
 
-    sf::Vector3f result = norm(a + b*cosArg);
+    sf::Vector3f result = norm(a + b * cosArg);
 
     //std::cout << result.x << " " << result.y << " " << result.z << "\n";
 

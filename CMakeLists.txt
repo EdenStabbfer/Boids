@@ -9,16 +9,18 @@ set(SFML_DIR C:/CPP_Libs/SFML/lib/cmake/SFML)
 find_package(SFML COMPONENTS system window graphics audio network REQUIRED)
 
 # Define directories and the contained folder and files inside.
-if(WIN32)
+if (WIN32)
     source_group("include" REGULAR_EXPRESSION "include/*")
     source_group("src" REGULAR_EXPRESSION "src/*")
-endif(WIN32)
+endif (WIN32)
 
 # Gather list of header and source files for compilation
-file(GLOB_RECURSE CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
-file(GLOB_RECURSE HPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h)
+file(GLOB_RECURSE CPP_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+file(GLOB_RECURSE HPP_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 
 add_executable(Boids ${CPP_FILES} ${HPP_FILES})
 
-include_directories(C:/CPP_Libs/SFML/include)
-target_link_libraries(Boids sfml-system sfml-window sfml-graphics sfml-audio)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+include_directories("C:/CPP_Libs/SFML/include")
+target_link_libraries(${PROJECT_NAME} sfml-system sfml-window sfml-graphics sfml-audio)

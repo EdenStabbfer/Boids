@@ -11,25 +11,32 @@
 #include "../Utils/Time.h"
 #include "../Utils/Statistics.h"
 
-class Boid : public IEntity
-{
+class Boid :
+        public IEntity {
     friend class ModelSolver;
+
     friend class BoundariesSolver;
+
     friend class InteractionSolver;
+
     friend class Renderer;
 
 public:
     Boid(sf::Vector2f pos, float maxSpeed);
 
     [[nodiscard]]
-    const sf::Vector2f& getPosition() const;
-    [[nodiscard]]
-    const sf::Vector2f& getVelocity() const;
-    [[nodiscard]]
-    float               getMaxSpeed() const;
+    const sf::Vector2f &getPosition() const;
 
-    void setPosition(const sf::Vector2f& pos);
-    void setVelocity(const sf::Vector2f& vel);
+    [[nodiscard]]
+    const sf::Vector2f &getVelocity() const;
+
+    [[nodiscard]]
+    float getMaxSpeed() const;
+
+    void setPosition(const sf::Vector2f &pos);
+
+    void setVelocity(const sf::Vector2f &vel);
+
     void setMaxSpeed(float speed);
 
     void move();

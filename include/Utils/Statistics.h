@@ -7,16 +7,14 @@
 
 #include "Statistics.h"
 
-struct SolverStats
-{
+struct SolverStats {
     int maxNeighboursCount{0};
 };
 
-struct BoidStats
-{
-    int     neighboursCount{0};
-    float   nearestDistToNeighbourSq{0};
-    float   distToCenterOfMass{0};
+struct BoidStats {
+    int   neighboursCount{0};
+    float nearestDistToNeighbourSq{0};
+    float distToCenterOfMass{0};
 };
 
 #endif //STATISTICS_H

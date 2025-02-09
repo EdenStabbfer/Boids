@@ -6,20 +6,17 @@
 #define SETTINGS_H
 
 
-class Settings
-{
+class Settings {
 public:
     // Window and render parameters
-    struct General
-    {
+    struct General {
         static const int WindowWidth;
         static const int WindowHeight;
         static const int FrameRateLimit;
     };
 
     // Boid2Boid and Boid2World interaction parameters
-    struct Model
-    {
+    struct Model {
         static float WindowMargin;
         static float TurnFactor;
         static float AvoidFactor;
@@ -30,9 +27,8 @@ public:
     };
 
     // Single Boid behavior parameters
-    struct Boid
-    {
-        static int Size;
+    struct Boid {
+        static int   Size;
         static float SteerStrength;
         static float WonderStrength;
     };
